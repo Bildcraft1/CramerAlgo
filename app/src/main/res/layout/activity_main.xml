@@ -75,7 +75,7 @@
         android:layout_marginTop="104dp"
         android:ems="10"
         android:hint="Y"
-        android:inputType="number|numberDecimal"
+        android:inputType="number|text|numberDecimal"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
