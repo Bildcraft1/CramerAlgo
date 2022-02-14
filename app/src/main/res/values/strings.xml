@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CramerAlgo</string>
+    <string name="eq1">Inserisci prima equazione</string>
+    <string name="eq2">Inserisci seconda equazione</string>
+    <string name="risultato">Risultato</string>
+    <string name="button">Risolvi</string>
+    <string name="risultato_x">Il risultato di X apparirà qui</string>
+    <string name="risultato_y">Il risultato di Y apparirà qui</string>
+</resources>
