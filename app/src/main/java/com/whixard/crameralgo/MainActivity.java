@@ -47,9 +47,13 @@ public class MainActivity extends AppCompatActivity {
         risultato_Y = (TextView) findViewById(R.id.risultatoY);
         button = (Button) findViewById(R.id.button);
         Button button = (Button) findViewById(R.id.button);
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
+                    risultato_X.setTextColor(Color.parseColor("#FFFFFF"));
+                    risultato_Y.setTextColor(Color.parseColor("#FFFFFF"));
+
                     // Import first Equation
                     String aStr = input_X1.getText().toString();
                     double a = Double.parseDouble(aStr);
