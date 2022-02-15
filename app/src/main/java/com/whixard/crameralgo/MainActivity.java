@@ -2,6 +2,7 @@ package com.whixard.crameralgo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,27 +49,34 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Import first Equation
-                String aStr = input_X1.getText().toString();
-                double a = Double.parseDouble(aStr);
-                String bStr = input_Y1.getText().toString();
-                double b = Double.parseDouble(bStr);
-                String r1Str = input_Risultato1.getText().toString();
-                double r1 = Double.parseDouble(r1Str);
+                try {
+                    // Import first Equation
+                    String aStr = input_X1.getText().toString();
+                    double a = Double.parseDouble(aStr);
+                    String bStr = input_Y1.getText().toString();
+                    double b = Double.parseDouble(bStr);
+                    String r1Str = input_Risultato1.getText().toString();
+                    double r1 = Double.parseDouble(r1Str);
 
-                // Import second Equation
-                String cStr = input_X2.getText().toString();
-                double c = Double.parseDouble(cStr);
-                String dStr = input_Y2.getText().toString();
-                double d = Double.parseDouble(dStr);
-                String r2Str = input_Risultato2.getText().toString();
-                double r2 = Double.parseDouble(r2Str);
+                    // Import second Equation
+                    String cStr = input_X2.getText().toString();
+                    double c = Double.parseDouble(cStr);
+                    String dStr = input_Y2.getText().toString();
+                    double d = Double.parseDouble(dStr);
+                    String r2Str = input_Risultato2.getText().toString();
+                    double r2 = Double.parseDouble(r2Str);
 
-                double x = ((r1*d)-(b*r2))/((a*d)-(b*c));
-                double y = ((a*r2)-(r1*c))/((a*d)-(b*c));
+                    double x = ((r1*d)-(b*r2))/((a*d)-(b*c));
+                    double y = ((a*r2)-(r1*c))/((a*d)-(b*c));
 
-                risultato_X.setText("X: " + convertDecimalToFraction(x));
-                risultato_Y.setText("Y: " + convertDecimalToFraction(y));
+                    risultato_X.setText("X: " + convertDecimalToFraction(x));
+                    risultato_Y.setText("Y: " + convertDecimalToFraction(y));
+                }
+                catch(Exception e) {
+                    risultato_X.setTextColor(Color.parseColor("#FF5733"));
+                    risultato_X.setText("Valori inseriti incorretti");
+                    risultato_Y.setText("");
+                }
             }
         });
     }
