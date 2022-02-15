@@ -2,9 +2,9 @@ package com.whixard.crameralgo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,54 +33,53 @@ public class MainActivity extends AppCompatActivity {
         return h1+"/"+k1;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        input_X1 = (EditText) findViewById(R.id.input_X1);
-        input_X2 = (EditText) findViewById(R.id.input_X2);
-        input_Y1 = (EditText) findViewById(R.id.input_Y1);
-        input_Y2 = (EditText) findViewById(R.id.input_Y2);
-        input_Risultato1 = (EditText) findViewById(R.id.input_Risultato1);
-        input_Risultato2 = (EditText) findViewById(R.id.input_Risultato2);
-        risultato_X = (TextView) findViewById(R.id.risultatoX2);
-        risultato_Y = (TextView) findViewById(R.id.risultatoY);
-        button = (Button) findViewById(R.id.button);
-        Button button = (Button) findViewById(R.id.button);
+        input_X1 = findViewById(R.id.input_X1);
+        input_X2 = findViewById(R.id.input_X2);
+        input_Y1 = findViewById(R.id.input_Y1);
+        input_Y2 = findViewById(R.id.input_Y2);
+        input_Risultato1 = findViewById(R.id.input_Risultato1);
+        input_Risultato2 = findViewById(R.id.input_Risultato2);
+        risultato_X = findViewById(R.id.risultatoX2);
+        risultato_Y = findViewById(R.id.risultatoY);
+        button = findViewById(R.id.button);
+        Button button = findViewById(R.id.button);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                try {
-                    risultato_X.setTextColor(Color.parseColor("#FFFFFF"));
-                    risultato_Y.setTextColor(Color.parseColor("#FFFFFF"));
+        button.setOnClickListener(v -> {
+            try {
+                risultato_X.setTextColor(Color.parseColor("#FFFFFF"));
+                risultato_Y.setTextColor(Color.parseColor("#FFFFFF"));
 
-                    // Import first Equation
-                    String aStr = input_X1.getText().toString();
-                    double a = Double.parseDouble(aStr);
-                    String bStr = input_Y1.getText().toString();
-                    double b = Double.parseDouble(bStr);
-                    String r1Str = input_Risultato1.getText().toString();
-                    double r1 = Double.parseDouble(r1Str);
+                // Import first Equation
+                String aStr = input_X1.getText().toString();
+                double a = Double.parseDouble(aStr);
+                String bStr = input_Y1.getText().toString();
+                double b = Double.parseDouble(bStr);
+                String r1Str = input_Risultato1.getText().toString();
+                double r1 = Double.parseDouble(r1Str);
 
-                    // Import second Equation
-                    String cStr = input_X2.getText().toString();
-                    double c = Double.parseDouble(cStr);
-                    String dStr = input_Y2.getText().toString();
-                    double d = Double.parseDouble(dStr);
-                    String r2Str = input_Risultato2.getText().toString();
-                    double r2 = Double.parseDouble(r2Str);
+                // Import second Equation
+                String cStr = input_X2.getText().toString();
+                double c = Double.parseDouble(cStr);
+                String dStr = input_Y2.getText().toString();
+                double d = Double.parseDouble(dStr);
+                String r2Str = input_Risultato2.getText().toString();
+                double r2 = Double.parseDouble(r2Str);
 
-                    double x = ((r1*d)-(b*r2))/((a*d)-(b*c));
-                    double y = ((a*r2)-(r1*c))/((a*d)-(b*c));
+                double x = ((r1*d)-(b*r2))/((a*d)-(b*c));
+                double y = ((a*r2)-(r1*c))/((a*d)-(b*c));
 
-                    risultato_X.setText("X: " + convertDecimalToFraction(x));
-                    risultato_Y.setText("Y: " + convertDecimalToFraction(y));
-                }
-                catch(Exception e) {
-                    risultato_X.setTextColor(Color.parseColor("#FF5733"));
-                    risultato_X.setText("Valori inseriti incorretti");
-                    risultato_Y.setText("");
-                }
+                risultato_X.setText("X: " + convertDecimalToFraction(x));
+                risultato_Y.setText("Y: " + convertDecimalToFraction(y));
+            }
+            catch(Exception e) {
+                risultato_X.setTextColor(Color.parseColor("#FF5733"));
+                risultato_X.setText("Valori inseriti incorretti");
+                risultato_Y.setText("");
             }
         });
     }
